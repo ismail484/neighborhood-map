@@ -13,32 +13,27 @@ var beers = [
 ];
 
 var viewModel = {
-  beers: ko.observableArray(beers)
-};
+    query: ko.observable(''),
+    beers: ko.observableArray(beers),
 
-ko.applyBindings(viewModel);
+    search: function(value) {
 
+     viewModel.beers.removeAll();
 
-//query is observable aatribute
-var viewModel = {
-
-
-  query: ko.observable('')
-}
-
-var viewModel = {
-  // …
-
-  search: function(value) {
-    // remove all the current beers, which removes them from the view
-    viewModel.beers.removeAll();
-
-    for(var x in beers) {
+      for(var x in beers) {
       if(beers[x].name.toLowerCase().indexOf(value.toLowerCase()) >= 0) {
         viewModel.beers.push(beers[x]);
       }
     }
   }
 };
+ko.applyBindings(viewModel);
 
 viewModel.query.subscribe(viewModel.search);
+ 
+
+
+
+
+
+
