@@ -8,16 +8,16 @@
   - using knockut JS libraries as a MVVM for rendering data at User Interface
 
 # Required Libraries and Dependencies
-.No thing
+   - No thing
 
 # How to Run Project 
-  1.  Download all Project files
-  2. run file index.html
+   1.  Download all Project files
+   2.  Run file index.html
 
 # Extra Credit Description
- - use other API providers for example :  WiKipedia API , YELP API.
+  - use other API providers for example :  WiKipedia API , YELP API.
  
 # Miscellaneous
-- It's working as a single page application . 
+  - It's working as a single page application . 
 
 # Resources
