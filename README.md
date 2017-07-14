@@ -28,3 +28,5 @@
    
    3. [binding blocking marker clicks](https://discussions.udacity.com/t/click-binding-blocking-marker-clicks/35398/2) 
    
+   4. [Google Maps API JavaScript](https://developers.google.com/maps/documentation/javascript/?)
+   
