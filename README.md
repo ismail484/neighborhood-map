@@ -22,7 +22,7 @@
 
 # Resources
   
-   1. [FourSquare API](https://api.foursquare.com/v2/venues/)
+   1. [FourSquare API](https://developer.foursquare.com/docs/explore#req=venues/search?)
   
    2. [Photo Response representation](https://developer.foursquare.com/docs/responses/photo)
   
