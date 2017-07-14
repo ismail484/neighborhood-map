@@ -22,8 +22,8 @@
 
 # Resources
   
-  1. [FourSquare API]('https://api.foursquare.com/v2/venues/)
+   1. [FourSquare API]('https://api.foursquare.com/v2/venues/)
   
-  2. [Photo Response representation](https://developer.foursquare.com/docs/responses/photo)
+   2. [Photo Response representation](https://developer.foursquare.com/docs/responses/photo)
   
-  3.[binding blocking marker clicks](https://discussions.udacity.com/t/click-binding-blocking-marker-clicks/35398/2)
+   3.[binding blocking marker clicks](https://discussions.udacity.com/t/click-binding-blocking-marker-clicks/35398/2)
