@@ -270,7 +270,7 @@ function initMap() {
     // databinding- knockout
 	ko.applyBindings(new viewModel()); 
 }
-//google map load error function using jquery
+//google map error function(jquery selector) ,it will be invoked when exists error to provide user with error message  
 function googleMapError() {
 	    var mapArea = document.getElementById('map');
 		var error= '<h2> Sorry, someting wrong through Map Loading , please contact administrator</h1>' ;
@@ -280,7 +280,9 @@ function googleMapError() {
 
 //Knockout- constructor
 var bart = function(data) {
+	//proper reference to my object bart
 	var self = this;
+	//bind my Model(barts) attribute 
 	self.name = ko.observable(data.name);
 	self.lat = ko.observable(data.lat);
 	self.lng = ko.observable(data.lng);
@@ -295,22 +297,22 @@ var bart = function(data) {
 
 //4. ViewModel
 var viewModel = function() {
-	//change scope
+	//proper reference to my object viewModel 
 	var self = this;
 	// define infowindow
 	var infowindow = new google.maps.InfoWindow({
 			maxWidth: 300
 		})
 	
-	// array of barts
+	// declare array of barts into ViewModel
 	self.bartItems = ko.observableArray([]); 
-	//call the constructor
+	//fill the (bartItems)through iterate over all barts(Model)
 	barts.forEach(function(bartItem) {
 		self.bartItems.push(new bart(bartItem));
 	});
 
 
-//5.set marker for each bart, call fpursquare then show on marker
+//5.set marker for each bart into VM, call foursquare then show on marker
 	self.bartItems().forEach(function(bartItem) {
 		//define markers
 		marker = new google.maps.Marker({
@@ -318,7 +320,7 @@ var viewModel = function() {
 			map: map,
 			animation: google.maps.Animation.DROP
 		});
-
+//marker method for each bartItem
 bartItem.marker=marker;
 
 // AJAX request  for Foursquare api
@@ -334,7 +336,8 @@ bartItem.marker=marker;
                     bartItem.address(location.address || '');
                 }
    
-               //declare prefix and suffix properties
+               //photo response
+			   //declare prefix and suffix properties
                 //https://developer.foursquare.com/docs/responses/photo
                 var bestPhoto = result.hasOwnProperty('bestPhoto') ? result.bestPhoto : '';
                 if (bestPhoto.hasOwnProperty('prefix')) {
@@ -345,11 +348,11 @@ bartItem.marker=marker;
                     bartItem.photoSuffix(bestPhoto.suffix || '');
                 }
                 
-				// This is all of the content for each infowindow
-                var contentString = '<div id="iWindow"><h4>' + bartItem.name() + '</h4><div id="pic"><img src="' +
+				// This is all of the contents for each infowindow
+                var contentString = '<div ><h4>' + bartItem.name() + '</h4><div ><img src="' +
                          bartItem.photoPrefix() + '170x120' + bartItem.photoSuffix() +
-                        '" alt=" pretty Location Image"></div><hr><p>Address:' + bartItem.address() + ", San Francisco</p>" ;
-
+                        '" alt=" pretty responsive Location Image"></div><hr><p>Address:' + bartItem.address() + ", San Francisco</p>" ;
+ 
 
                     google.maps.event.addListener(bartItem.marker, 'click', function () {
                      infowindow.open(map, this);
@@ -365,7 +368,7 @@ bartItem.marker=marker;
                  });
 
 			},
-			// if there is any error in object contentString which coming from Foursquare API
+			// error function ,if there is any error in object contentString which coming from Foursquare API
             error: function (e) {
                 document.getElementById("error-view").innerHTML = "<h4>Sorry, No data from FourSquare, please Check your administrator</h4>";
             }
@@ -383,7 +386,7 @@ bartItem.marker=marker;
         return self.toggleNav() === false ? 'nav' : 'navClosed';
         }, this);
 
- // activate default settings
+ // binding blocking marker clicks
  //  https://discussions.udacity.com/t/click-binding-blocking-marker-clicks/35398/2
     self.hideElements = function (toggleNav) {
         self.toggleNav(true);
@@ -429,6 +432,7 @@ bartItem.marker=marker;
 					self.visible.push(bartItem);
 				}
 			});
+			//visible  the martker for show the matched barts as 
 			self.visible().forEach(function(bartItem) {
 				bartItem.marker.setVisible(true);
 			});
