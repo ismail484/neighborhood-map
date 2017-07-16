@@ -154,8 +154,7 @@ function initMap() {
 			"stylers": [{
 				"color": "#447530"
 			}]
-		} 
-		, {
+		}, {
 			"featureType": "road",
 			"elementType": "geometry",
 			"stylers": [{"color": "#f5f1e6"
@@ -288,7 +287,7 @@ var bart = function(data) {
 	self.lng = ko.observable(data.lng);
 	self.fid = ko.observable(data.fid);
 	self.marker = ko.observable();
-	self.contentString = ko.observable('')
+	self.contentString = ko.observable('');
 	self.address = ko.observable('');
     self.photoPrefix = ko.observable('');
     self.photoSuffix = ko.observable('');
@@ -302,7 +301,7 @@ var viewModel = function() {
 	// define infowindow
 	var infowindow = new google.maps.InfoWindow({
 			maxWidth: 300
-		})
+		});
 	
 	// declare array of barts into ViewModel
 	self.bartItems = ko.observableArray([]); 
