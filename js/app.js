@@ -348,10 +348,21 @@ bartItem.marker=marker;
                 }
                 
 				// This is all of the contents for each infowindow
-                var contentString = '<div ><h4>' + bartItem.name() + '</h4><div ><img src="' +
-                         bartItem.photoPrefix() + '170x120' + bartItem.photoSuffix() +
-                        '" alt=" pretty responsive Location Image"></div><hr><p>Address:' + bartItem.address() + ", San Francisco</p>" ;
+                // var contentString = '<div ><h4>' + bartItem.name() + '</h4><div ><img src="' +
+                //          bartItem.photoPrefix() + '170x120' + bartItem.photoSuffix() +
+                //         '" alt=" pretty responsive Location Image"></div><hr><p>Address:' + bartItem.address() + ", San Francisco</p>" ;
  
+                var contentString = '<div ><h4>' +bartItem.name() +'</h4><div >' +
+                (
+                 bartItem.photoPrefix() ?
+                '<img src="' +
+                bartItem.photoPrefix() +
+                '170x120' +
+                bartItem.photoSuffix() +
+                '" alt=" pretty responsive Location Image">' : ''
+                ) +
+                '</div><hr><p>Address:' + bartItem.address() + ', San Francisco</p>';
+
 
                     google.maps.event.addListener(bartItem.marker, 'click', function () {
                      infowindow.open(map, this);
@@ -369,7 +380,7 @@ bartItem.marker=marker;
 			},
 			// error function ,if there is any error in object contentString which coming from Foursquare API
             error: function (e) {
-                document.getElementById("error-view").innerHTML = "<h4>Sorry, No data from FourSquare, please Check your administrator</h4>";
+                document.getElementById("error-view").innerHTML = "<h4>Sorry, No data from FourSquare, please Check with your administrator</h4>";
             }
 				});
  
