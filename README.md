@@ -2,7 +2,7 @@
 
 # Description
   
-  - Fist open [Neighboorhood Map App](https://ismail484.github.io./) to discover
+  - Fist open [Neighboorhood Map App](https://ismail484.github.io/neighborhood-map-app/) to discover
   - Develop a single page application featuring a map of a neighborood you would like to visit e.g Barts in San Francisco,US.
   - This map include map marker,StreetView,InfoWindow and other  map detais (mountains, sees, schools,..)
   - Using Google Maps API , Foursquare API through AJAX calling just to collect the data without any user interaction.
